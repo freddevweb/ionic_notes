@@ -1,0 +1,36 @@
+<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost/ionic/notes/api/APIWithUsers/ ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';"> -->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>M'enregistrer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<form [formGroup]="registerData" (ngSubmit)="submitRegistration()">
+		<ion-item>
+			<ion-input type="text" placeholder="Votre adresse email" formControlName="email" ></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Votre nom" formControlName="lastname" [formGroup]="registerData"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-input type="text" placeholder="Votre prénom" formControlName="firstname" [formGroup]="registerData"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-input type="password" [formGroup]="registerData" placeholder="Mot de passe" formControlName="password" ></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-input type="password" placeholder="Confirmation" [formGroup]="registerData" formControlName="passwordConfirmation"></ion-input>
+		</ion-item>
+
+		<button ion-item  color="primary" block full text-center [disabled]="!registerData.valid">M'enregistrer</button>
+	</form>
+</ion-content>

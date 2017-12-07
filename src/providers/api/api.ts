@@ -13,9 +13,9 @@ import {Headers} from "@angular/http";
 export class ApiProvider {
 
   private token: string;
-  private apiUrl: string = 'http://localhost/ionic/notes/api/APIWithUsers/';
+  private apiUrl: string = 'http://notes.api/';
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, public storage: Storage) {}
 
   get(endpoint, params ?: any) {
     return this.http.get(this.apiUrl + endpoint, params);

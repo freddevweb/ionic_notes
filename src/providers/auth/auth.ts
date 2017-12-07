@@ -32,6 +32,7 @@ export class AuthProvider {
   }
 
   register(data) {
+	console.log(data);
     return this.api.post('auth/inscription', data);
   }
 

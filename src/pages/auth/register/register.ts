@@ -15,7 +15,7 @@ export class RegisterPage {
 
   public registerData: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authService: AuthService, public authProvider: AuthProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public authService: AuthService, public authProvider: AuthProvider) {
     this.registerData = this.formBuilder.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       firstname: ['', Validators.compose([Validators.required, Validators.maxLength(60)])],
@@ -29,20 +29,6 @@ export class RegisterPage {
 
   submitRegistration() {
 	console.log(this.registerData.value);
-	let aut = this.authProvider.register( this.registerData.value );
-	console.log(aut);
-	// return new Promise((resolve, reject) => {
-	// 	this.authProvider.register(this.registerData.value).subscribe(response => {
-
-	// 		let token = response.{}
-	// 		console.log(response);
-	// 		window.localStorage.setItem( ‘app-name’, JSON.stringify(response["tocken"]));
-	// 		resolve();
-	// 	}, error => {
-	// 		reject(error);
-	// 	});
-	// });
-
-	
+	this.authProvider.register( this.registerData.value );
   }
 }

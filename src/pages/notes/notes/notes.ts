@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NoteProvider } from '../../../providers/note/note';
 
 /**
  * Generated class for the NotesPage page.
@@ -16,20 +15,11 @@ import { NoteProvider } from '../../../providers/note/note';
 })
 export class NotesPage {
 
-	public notes: string[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public noteP: NoteProvider) {
-	}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad NotesPage');
-		let notes = this.noteP.getNotes();
-		console.log(notes);
-	}
-	ionViewCanEnter(){
-		console.log("coucou");
-		console.log( this.noteP.getNotes() );
-
-	}
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad NotesPage');
+  }
 
 }
